@@ -2,8 +2,9 @@
 #include<stdlib.h>
 #include <ctype.h>
 
-char caesar_encrypt_char(char p, int k){
-    if (isupper(p)) {
+char caesar_encrypt_char(char p, int k)
+{
+    if (isupper(p)){
         return((p - 'A' + k) % 26) + 'A';
     } else if (islower(p)){
         return((p - 'a' + k) % 26) + 'a';
@@ -11,7 +12,8 @@ char caesar_encrypt_char(char p, int k){
     return p;
 }
 
-char caesar_decrypt_char(char c, int k){
+char caesar_decrypt_char(char c, int k)
+{
     if (isupper(c)){
         return((c - 'A' - k + 26) % 26) + 'A';
     } else if (islower(c)) {
@@ -20,19 +22,24 @@ char caesar_decrypt_char(char c, int k){
     return c;
 }
 
-void caesar_encrypt_string(char *text, int k){
-    for (int i = 0; text[i] != '\0'; i++){
+void caesar_encrypt_string(char *text, int k)
+{
+    for (int i = 0; text[i] != '\0'; i++)
+    {
         text[i] = caesar_encrypt_char(text[i], k);
     }
 }
 
-void caesar_decrypt_string(char *text, int k){
-    for (int i = 0; text[i] != '\0'; i++) {
+void caesar_decrypt_string(char *text, int k)
+{
+    for (int i = 0; text[i] != '\0'; i++)
+    {
         text[i] = caesar_decrypt_char(text[i], k);
     }
 }
 
-int main(){
+int main()
+{
     char text[] = "HELLO";
     int key = 3;
 
