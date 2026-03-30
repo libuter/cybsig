@@ -8,31 +8,35 @@ char caesar_char(char symbol, int key, int encrypt)
     if (isupper(symbol))
     {
         if (encrypt)
-            return((symbol - 'A' + key) % 26) + 'A';
+            return ((symbol - 'A' + key) % 26) + 'A';
         else
-            return((symbol - 'A' - key + 26) % 26) + 'A';
-    } 
+            return ((symbol - 'A' - key + 26) % 26) + 'A';
+    }
     else if (islower(symbol))
     {
         if (encrypt)
             return ((symbol - 'a' + key) % 26) + 'a';
         else
-            return((symbol - 'a' - key + 26) % 26) + 'a';
+            return ((symbol - 'a' - key + 26) % 26) + 'a';
     }
     return symbol;
 }
 
 int main(int argc, char **argv)
 {
-    if (argc != 5){
+    if (argc != 5)
+    {
         printf("Usage:\n  %s -e|-d input.txt key.txt output.txt\n", argv[0]);
         return EXIT_FAILURE;
     }
 
     int encrypt = 0;
-    if (strcmp(argv[1], "-e") == 0) encrypt = 1;
-    else if (strcmp(argv[1], "-d") == 0) encrypt = 0;
-    else{
+    if (strcmp(argv[1], "-e") == 0)
+        encrypt = 1;
+    else if (strcmp(argv[1], "-d") == 0)
+        encrypt = 0;
+    else
+    {
         printf("Unknown option %s\n", argv[1]);
         return EXIT_FAILURE;
     }
@@ -71,7 +75,7 @@ int main(int argc, char **argv)
     }
 
     int ch;
-    while((ch = fgetc(fin)) != EOF)
+    while ((ch = fgetc(fin)) != EOF)
     {
         fputc(caesar_char((char)ch, key, encrypt), fout);
     }
@@ -81,4 +85,5 @@ int main(int argc, char **argv)
 
     printf("Operation %s completed successfully!\n", encrypt ? "encryption" : "decryption");
     return EXIT_SUCCESS;
-}
+} // .\caesar_tool.exe -e caesar_plaintext.txt caesar_key.txt caesar_encrypted.txt
+// .\caesar_tool.exe -d caesar_encrypted.txt caesar_key.txt caesar_decrypted.txt
