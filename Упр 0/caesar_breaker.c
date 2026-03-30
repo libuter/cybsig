@@ -8,7 +8,7 @@ char decrypt_char(char c, int key)
 {
     if (isupper(c))
         return ((c - 'A' - key + LETTERS) % LETTERS) + 'A';
-    return c; // пробелы и другие символы не меняем
+    return c; 
 }
 
 void decrypt_with_key(char *cipher, int key)
