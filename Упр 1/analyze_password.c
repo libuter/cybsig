@@ -11,7 +11,7 @@ int analyze_password(const char *pass)
     int weak_count = sizeof(weak) / sizeof(weak[0]);
 
     int len = strlen(pass);
-    score += len; // +1 за каждый символ
+    score += len;
 
     for (int i = 0; i < len; i++)
     {
@@ -34,7 +34,6 @@ int analyze_password(const char *pass)
     if (has_special)
         score += 20;
 
-    // Проверка на слабый пароль
     for (int i = 0; i < weak_count; i++)
     {
         if (strcmp(pass, weak[i]) == 0)
