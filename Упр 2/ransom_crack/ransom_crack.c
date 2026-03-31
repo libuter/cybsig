@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// RC4 функция (шифрование и дешифрование одна и та же)
 void rc4_crypt(unsigned char *key, int keylen, unsigned char *data, int datalen, unsigned char *output)
 {
     unsigned char S[256];
@@ -33,7 +32,6 @@ void rc4_crypt(unsigned char *key, int keylen, unsigned char *data, int datalen,
 
 int main()
 {
-    // 1. Криптованное сообщение "Top Secret Data" с ключом "4321"
     unsigned char encrypted[] = {
         0x95, 0x56, 0x93, 0x54, 0x1B, 0x22, 0xCF, 0x6E,
         0xC5, 0x8C, 0x52, 0x34, 0xCC, 0x86, 0x3A
