@@ -7,7 +7,6 @@ void print_histogram(const char *text)
     int counts[26] = {0};
     int total_letters = 0;
 
-    // 1. Подсчёт букв
     for (int i = 0; text[i] != '\0'; i++)
     {
         if (isalpha(text[i]))
@@ -19,7 +18,6 @@ void print_histogram(const char *text)
         }
     }
 
-    // 2. Вывод гистограммы
     printf("\n--- FREQUENCY HISTOGRAM ---\n");
 
     for (int i = 0; i < 26; i++)
@@ -28,7 +26,6 @@ void print_histogram(const char *text)
         {
             printf("%c (%3d): ", 'A' + i, counts[i]);
 
-            // рисуем звёздочки
             for (int j = 0; j < counts[i]; j++)
             {
                 printf("*");
