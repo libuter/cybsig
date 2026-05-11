@@ -1,0 +1,10 @@
+admin
+password
+qwerty
+football
+123456
+banana
+letmein
+secret
+dragon
+monkey
